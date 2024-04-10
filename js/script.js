@@ -12,6 +12,8 @@ const secondElem = document.getElementById('seconds');
 const timeElem = document.getElementById('time');
 const buonAnnoElem = document.querySelector('.buon-anno');
 
+
+
 // hourElem.innerHTML = hours
 // minuteElem.innerHTML = minutes
 secondElem.innerHTML = seconds
@@ -31,9 +33,18 @@ setTimeout(function() {
   buonAnnoElem.classList.remove('hidden')
   buonAnnoElem.classList.add('block');
 
-  let str = 'BUONANNO'; 
-  for (let i = 0; i < str.length; i++) {
-    console.log('DAMMI una:', str[i])
-  }
+  const clockCheeleaders = setInterval(function() {
+    buonAnnoElem.classList.remove('block')
+    buonAnnoElem.classList.add('hidden');
+    let str = 'BUONANNO'; 
+    cheerleaders(str);
+  }, 2000);
+
+  setTimeout(function() {
+    clearInterval(clockCheeleaders);
+    cheerleaderElem.classList.add('hidden');
+    buonAnnoElem.classList.remove('hidden');
+    buonAnnoElem.classList.add('block');
+  }, 3900)
 
 }, 10000)
